@@ -2994,14 +2994,13 @@ __install_saltstack_ubuntu_repository() {
 
     if [ "$STABLE_REV" != "latest" ]; then
         # latest is default
-        STABLE_REV_MAJOR=$(echo "$STABLE_REV" | cut -d '.' -f 1)
-        if [ "$STABLE_REV_MAJOR" -eq "3006" ]; then
+        if [ "$(echo "$STABLE_REV" | grep -E '^(3006|3007)$')" != "" ]; then
             echo "Package: salt-*" > /etc/apt/preferences.d/salt-pin-1001
-            echo "Pin: version 3006.*" >> /etc/apt/preferences.d/salt-pin-1001
+            echo "Pin: version $STABLE_REV.*" >> /etc/apt/preferences.d/salt-pin-1001
             echo "Pin-Priority: 1001" >> /etc/apt/preferences.d/salt-pin-1001
-        elif [ "$STABLE_REV_MAJOR" -eq "3007" ]; then
+        elif [ "$(echo "$STABLE_REV" | grep -E '^([3-9][0-5]{2}[5-9](\.[0-9]*)?)')" != "" ]; then
             echo "Package: salt-*" > /etc/apt/preferences.d/salt-pin-1001
-            echo "Pin: version 3007.*" >> /etc/apt/preferences.d/salt-pin-1001
+            echo "Pin: version $STABLE_REV" >> /etc/apt/preferences.d/salt-pin-1001
             echo "Pin-Priority: 1001" >> /etc/apt/preferences.d/salt-pin-1001
         fi
     fi
@@ -3046,14 +3045,13 @@ __install_saltstack_ubuntu_onedir_repository() {
 
     if [ "$ONEDIR_REV" != "latest" ]; then
         # latest is default
-        ONEDIR_REV_MAJOR=$(echo "$ONEDIR_REV" | cut -d '.' -f 1)
-        if [ "$ONEDIR_REV_MAJOR" -eq "3006" ]; then
+        if [ "$(echo "$ONEDIR_REV" | grep -E '^(3006|3007)$')" != "" ]; then
             echo "Package: salt-*" > /etc/apt/preferences.d/salt-pin-1001
-            echo "Pin: version 3006.*" >> /etc/apt/preferences.d/salt-pin-1001
+            echo "Pin: version $ONEDIR_REV.*" >> /etc/apt/preferences.d/salt-pin-1001
             echo "Pin-Priority: 1001" >> /etc/apt/preferences.d/salt-pin-1001
-        elif [ "$ONEDIR_REV_MAJOR" -eq "3007" ]; then
+        elif [ "$(echo "$ONEDIR_REV" | grep -E '^([3-9][0-5]{2}[5-9](\.[0-9]*)?)')" != "" ]; then
             echo "Package: salt-*" > /etc/apt/preferences.d/salt-pin-1001
-            echo "Pin: version 3007.*" >> /etc/apt/preferences.d/salt-pin-1001
+            echo "Pin: version $ONEDIR_REV" >> /etc/apt/preferences.d/salt-pin-1001
             echo "Pin-Priority: 1001" >> /etc/apt/preferences.d/salt-pin-1001
         fi
     fi
@@ -3492,14 +3490,13 @@ __install_saltstack_debian_repository() {
 
     if [ "$STABLE_REV" != "latest" ]; then
         # latest is default
-        STABLE_REV_MAJOR=$(echo "$STABLE_REV" | cut -d '.' -f 1)
-        if [ "$STABLE_REV_MAJOR" -eq "3006" ]; then
+        if [ "$(echo "$STABLE_REV" | grep -E '^(3006|3007)$')" != "" ]; then
             echo "Package: salt-*" > /etc/apt/preferences.d/salt-pin-1001
-            echo "Pin: version 3006.*" >> /etc/apt/preferences.d/salt-pin-1001
+            echo "Pin: version $STABLE_REV.*" >> /etc/apt/preferences.d/salt-pin-1001
             echo "Pin-Priority: 1001" >> /etc/apt/preferences.d/salt-pin-1001
-        elif [ "$STABLE_REV_MAJOR" -eq "3007" ]; then
+        elif [ "$(echo "$STABLE_REV" | grep -E '^([3-9][0-5]{2}[5-9](\.[0-9]*)?)')" != "" ]; then
             echo "Package: salt-*" > /etc/apt/preferences.d/salt-pin-1001
-            echo "Pin: version 3007.*" >> /etc/apt/preferences.d/salt-pin-1001
+            echo "Pin: version $STABLE_REV" >> /etc/apt/preferences.d/salt-pin-1001
             echo "Pin-Priority: 1001" >> /etc/apt/preferences.d/salt-pin-1001
         fi
     fi
@@ -3536,14 +3533,13 @@ __install_saltstack_debian_onedir_repository() {
 
     if [ "$ONEDIR_REV" != "latest" ]; then
         # latest is default
-        ONEDIR_REV_MAJOR=$(echo "$ONEDIR_REV" | cut -d '.' -f 1)
-        if [ "$ONEDIR_REV_MAJOR" -eq "3006" ]; then
+        if [ "$(echo "$ONEDIR_REV" | grep -E '^(3006|3007)$')" != "" ]; then
             echo "Package: salt-*" > /etc/apt/preferences.d/salt-pin-1001
-            echo "Pin: version 3006.*" >> /etc/apt/preferences.d/salt-pin-1001
+            echo "Pin: version $ONEDIR_REV.*" >> /etc/apt/preferences.d/salt-pin-1001
             echo "Pin-Priority: 1001" >> /etc/apt/preferences.d/salt-pin-1001
-        elif [ "$ONEDIR_REV_MAJOR" -eq "3007" ]; then
+        elif [ "$(echo "$ONEDIR_REV" | grep -E '^([3-9][0-5]{2}[5-9](\.[0-9]*)?)')" != "" ]; then
             echo "Package: salt-*" > /etc/apt/preferences.d/salt-pin-1001
-            echo "Pin: version 3007.*" >> /etc/apt/preferences.d/salt-pin-1001
+            echo "Pin: version $ONEDIR_REV" >> /etc/apt/preferences.d/salt-pin-1001
             echo "Pin-Priority: 1001" >> /etc/apt/preferences.d/salt-pin-1001
         fi
     fi
